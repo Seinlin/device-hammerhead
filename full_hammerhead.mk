@@ -30,5 +30,13 @@ PRODUCT_MODEL := AOSP on HammerHead
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RESTRICT_VENDOR_FILES := true
 
+# No CLANG for B2G build
+WITHOUT_CLANG := true
+
+# Use device's init.rc no need to patch in gonk-misc
+TARGET_PROVIDES_B2G_INIT_RC := true
+PRODUCT_COPY_FILES += \
+  device/lge/hammerhead/init.rc:root/init.rc
+
 $(call inherit-product, device/lge/hammerhead/device.mk)
 $(call inherit-product-if-exists, vendor/lge/hammerhead/device-vendor.mk)

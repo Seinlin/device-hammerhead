@@ -137,7 +137,6 @@ PRODUCT_PACKAGES := \
 # Live Wallpapers
 PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
-    librs_jni
 
 PRODUCT_PACKAGES += \
     gralloc.msm8974 \
@@ -366,6 +365,18 @@ else
 PRODUCT_COPY_FILES += \
     device/lge/hammerhead/init.hammerhead.diag.rc.user:root/init.hammerhead.diag.rc
 endif
+
+# for Gecko
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.moz.has_home_button=0
+
+# for Gecko to support bluedroid stack
+PRODUCT_PACKAGES += \
+  bluetooth.default \
+  nfcd
+
+PRODUCT_COPY_FILES += \
+  device/lge/hammerhead/volume.cfg:system/etc/volume.cfg
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
