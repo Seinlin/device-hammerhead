@@ -35,9 +35,9 @@ install_blobs() {
 }
 
 HAMMERHEAD_BLOBS="
-    broadcom-hammerhead-ktu84p-5a5bf60e.tgz
-    lge-hammerhead-ktu84p-49419c39.tgz
-    qcom-hammerhead-ktu84p-f159eadf.tgz
+    broadcom-hammerhead-lrx21o-01fad5db.tgz
+    lge-hammerhead-lrx21o-c6cf4582.tgz
+    qcom-hammerhead-lrx21o-e0cd4949.tgz
     "
 
 CSUM_LIST="$PWD/blob-shasums"
