@@ -136,7 +136,7 @@ PRODUCT_PACKAGES := \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
+    LiveWallpapersPicker
 
 PRODUCT_PACKAGES += \
     gralloc.msm8974 \
@@ -233,6 +233,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     power.hammerhead
+
+# for Gecko to support bluedroid stack
+PRODUCT_PACKAGES += \
+    bluetooth.default
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
@@ -333,10 +337,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.custom_ecc=1
 
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # Request modem to send PLMN name always irrespective
 # of display condition in EFSPN.
 # RIL uses this property.
@@ -368,15 +368,16 @@ endif
 
 # for Gecko
 PRODUCT_PROPERTY_OVERRIDES += \
-       ro.moz.has_home_button=0
+    ro.moz.has_home_button=0 \
+    ro.moz.nfc.enabled=true
 
-# for Gecko to support bluedroid stack
 PRODUCT_PACKAGES += \
-  bluetooth.default \
-  nfcd
+    nfcd
 
 PRODUCT_COPY_FILES += \
-  device/lge/hammerhead/volume.cfg:system/etc/volume.cfg
+    device/lge/hammerhead/volume.cfg:system/etc/volume.cfg
+
+GAIA_DEV_PIXELS_PER_PX := 2.0
 
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
