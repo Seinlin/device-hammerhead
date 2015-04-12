@@ -384,6 +384,8 @@ PRODUCT_COPY_FILES += \
 
 GAIA_DEV_PIXELS_PER_PX := 2.25
 
+DISABLE_JEMALLOC := 1
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
